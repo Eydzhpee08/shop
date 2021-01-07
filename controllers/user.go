@@ -1,7 +1,7 @@
 //Models/User.go
 package Models
 import (
- "first-api/Config"
+ "github.com/Eydzhpee08/first-api/Config"
  "fmt"
 _ "github.com/go-sql-driver/mysql"
 )

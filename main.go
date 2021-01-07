@@ -1,9 +1,9 @@
 //main.go
 package main
 import (
- "first-api/Config"
- "first-api/Models"
- "first-api/Routes"
+ "github.com/Eydzhpee08/first-api/Config"
+ "github.com/Eydzhpee08/first-api/Models"
+ "github.com/Eydzhpee08/first-api/Routes"
  "fmt"
 "github.com/jinzhu/gorm"
 )

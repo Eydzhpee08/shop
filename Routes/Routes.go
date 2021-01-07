@@ -1,7 +1,7 @@
 //Routes/Routes.go
 package Routes
 import (
- "first-api/controllers"
+ "github.com/Eydzhpee08/first-api/controllers"
 "github.com/gin-gonic/gin"
 )
 //SetupRouter ... Configure routes
