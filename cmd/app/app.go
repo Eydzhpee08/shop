@@ -13,10 +13,10 @@ type Server struct {
 	router *gin.Engine
 	productSvc *products.Service
 	customerSvc *customers.Service
-	billSvc *bills.Service
+	billSvc *bill.Service
 }
 
-func NewServer(router *gin.Engine, productSvc *products.Service, customerSvc *customers.Service, billSvc *bills.Service) *Server{
+func NewServer(router *gin.Engine, productSvc *products.Service, customerSvc *customers.Service, billSvc *bill.Service) *Server{
 	return &Server{router: router, productSvc: productSvc, customerSvc: customerSvc, billSvc: billSvc}
 }
 

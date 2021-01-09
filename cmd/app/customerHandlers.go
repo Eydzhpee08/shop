@@ -13,7 +13,8 @@ import (
 	"github.com/jackc/pgx/v4"
 )
 
-func (s *Server)GetcustomersAll(ctx *gin.Context) {
+
+func (s *Server)GetCustomersAll(ctx *gin.Context) {
 	request :=ctx.Request
 	writer :=ctx.Writer
 	
@@ -67,16 +68,16 @@ func (s *Server) AddCustomer(ctx *gin.Context) {
 	}
 	fmt.Println(requestData)
 
-    err = s.customerSvc.Addcustomer(ctx, requestData)
+    err = s.customerSvc.AddCustomer(ctx, requestData)
 	if err != nil {
 	
 		writer.WriteHeader(http.StatusInternalServerError)
-		log.Printf("error on customer service, Addcustomer %s",err.Error())
+		log.Printf("error on customer service, AddCustomer %s",err.Error())
 		return
 	}
 	
 
-	ctx.String(http.StatusOK, "%s", string("registered success!"))
+	ctx.String(http.StatusOK, "%s", string("add success!"))
 }
 
 //Editcustomer ...
@@ -97,14 +98,14 @@ func (s *Server) EditCustomer(ctx *gin.Context) {
 		return
 	}
 
-    err = s.customerSvc.Editcustomer(ctx, requestData)
+    err = s.customerSvc.EditCustomer(ctx, requestData)
 	if err != nil {
 		if err==pgx.ErrNoRows{
 			writer.WriteHeader(http.StatusNotFound)
 			return
 		}
 		if err.Error()=="conflict"{
-			ctx.String(http.StatusBadRequest, "%s", string("this class is already have a customer!!"))
+			ctx.String(http.StatusBadRequest, "%s", string("this is already have a customer!!"))
 		}
 		writer.WriteHeader(http.StatusInternalServerError)
 		log.Print(err)
@@ -124,7 +125,7 @@ func (s *Server) RemoveCustomer(ctx *gin.Context) {
 		writer.WriteHeader(http.StatusBadRequest)
 		return
 	}
-    err = s.customerSvc.Removecustomer(ctx, customerID)
+    err = s.customerSvc.RemoveCustomer(ctx, customerID)
 	if err != nil {
 		if err==pgx.ErrNoRows{
 			writer.WriteHeader(http.StatusNotFound)

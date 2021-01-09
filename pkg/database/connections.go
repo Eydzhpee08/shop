@@ -22,7 +22,7 @@ func Init(db *pgx.Conn) error{
 	_, err:=db.Exec(context.Background(),
 	`
 	CREATE TABLE if not exists bill (
-		product_name TEXT REFERENCES products
+		product_name TEXT REFERENCES products,
 		customers_name TEXT REFERENCES customers
 	);`)
 	if err!=nil{
@@ -33,6 +33,7 @@ func Init(db *pgx.Conn) error{
 		id BIGSERIAL PRIMARY KEY,
         name TEXT NOT NULL,
 		tel TEXT NOT NULL UNIQUE,
+		email TEXT NOT NULL UNIQUE
 	);`)
 	if err!=nil{
 		return err
@@ -42,7 +43,7 @@ func Init(db *pgx.Conn) error{
 	CREATE TABLE if not exists products (
 		id BIGSERIAL PRIMARY KEY,
         price INTEGER NOT NULL CHECK (price >0),
-        name TEXT NOT NULL,
+        name TEXT NOT NULL
 		);
 	`)
 	if err!=nil{

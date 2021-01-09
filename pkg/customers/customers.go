@@ -18,7 +18,7 @@ type Service struct {
 	db *pgx.Conn
 }
 
-func NewTeacherService(db *pgx.Conn) *Service {
+func NewCustomersService(db *pgx.Conn) *Service {
 	return &Service{db: db}
 }
 

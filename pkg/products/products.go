@@ -17,12 +17,12 @@ type Service struct {
 	db *pgx.Conn
 }
 
-func NewStudentService(db *pgx.Conn) *Service {
+func NewProductService(db *pgx.Conn) *Service {
 	return &Service{db: db}
 }
 
 
-func (s *Service) GetStudents(ctx context.Context, limit, offset int64) ([]Product, error) {
+func (s *Service) GetProduct(ctx context.Context, limit, offset int64) ([]Product, error) {
 	sql := `SELECT id, name, price, created FROM products LIMIT $1 OFFSET $2`
 	rows, err := s.db.Query(ctx, sql, limit, offset)
 	if err != nil {

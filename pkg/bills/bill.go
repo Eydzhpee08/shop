@@ -7,8 +7,8 @@ import (
 )
 
 type Bill struct {
-	ID          int64     `json:"id"`
-	Name        string    `json:"name"`
+	Product_name          string     `json:"product_name"`
+	Customers_name        string   `json:"customers_name"`
 }
 
 type Service struct {
@@ -20,7 +20,7 @@ func NewBillService(db *pgx.Conn) *Service {
 }
 
 func (s *Service) GetBill(ctx context.Context, limit, offset int64) ([]Bill, error) {
-	sql := `select id, name, created from bill limit $1 offset $2`
+	sql := `select product_name, customers_name, created FROM bill limit $1 offset $2`
 	rows, err := s.db.Query(ctx, sql, limit, offset)
 	if err != nil {
 		return nil, err
@@ -29,8 +29,8 @@ func (s *Service) GetBill(ctx context.Context, limit, offset int64) ([]Bill, err
 	for rows.Next() {
 		bill := Bill{}
 		err = rows.Scan(
-			&bill.ID,
-			&bill.Name,
+			&bill.Product_name,
+			&bill.Customers_name,
 		)
 		if err != nil {
 			return nil, err
@@ -43,8 +43,8 @@ func (s *Service) GetBill(ctx context.Context, limit, offset int64) ([]Bill, err
 
 func (s *Service) AddBill(ctx context.Context, bill Bill) error {
 
-	sql := "INSERT INTO bills (name) VALUES ($1);"
-	_, err := s.db.Exec(ctx, sql, bill.Name)
+	sql := "INSERT INTO bills (product_name, customers_name) VALUES ($1,$2);"
+	_, err := s.db.Exec(ctx, sql, bill.Product_name, bill.Customers_name)
 	if err != nil {
 		log.Print(err)
 		return err

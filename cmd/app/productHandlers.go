@@ -12,13 +12,10 @@ import (
 	"github.com/jackc/pgx/v4"
 )
 
-type RequestData struct{
-	Limit int64 `json:"limit"`
-	Offset int64 `json:"offset"`
-}
+
 
 //GetproductsAll testing
-func (s *Server)GetProductsAll(ctx *gin.Context) {
+func (s *Server)GetProductAll(ctx *gin.Context) {
 	request :=ctx.Request
 	writer :=ctx.Writer
 	
@@ -35,7 +32,7 @@ func (s *Server)GetProductsAll(ctx *gin.Context) {
 		return
 	}
 
-	list, err:=s.productSvc.Getproducts(ctx, requestData.Limit, requestData.Offset)
+	list, err:=s.productSvc.GetProduct(ctx, requestData.Limit, requestData.Offset)
 	if err != nil {
 		writer.WriteHeader(http.StatusInternalServerError)
 		log.Print(err)
@@ -63,7 +60,7 @@ func (s *Server) AddProducts(ctx *gin.Context) {
 		return
 	}
 
-	requestData := products.product{}
+	requestData := products.Product{}
 	err = json.Unmarshal(body, &requestData)
 	if err!=nil {
 		writer.WriteHeader(http.StatusBadRequest)
@@ -78,7 +75,7 @@ func (s *Server) AddProducts(ctx *gin.Context) {
 	}
 	
 
-	ctx.String(http.StatusOK, "%s", string("registered success!"))
+	ctx.String(http.StatusOK, "%s", string("add success!"))
 }
 
 //Editproducts ...
