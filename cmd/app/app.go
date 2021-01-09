@@ -3,9 +3,9 @@ package app
 import (
 	"net"
 
-	"github.com/Eydzhpee08/first-api/pkg/bills"
-	"github.com/Eydzhpee08/first-api/pkg/products"
-	"github.com/Eydzhpee08/first-api/pkg/customers"
+	"github.com/Eydzhpee08/shop/pkg/bills"
+	"github.com/Eydzhpee08/shop/pkg/products"
+	"github.com/Eydzhpee08/shop/pkg/customers"
 	"github.com/gin-gonic/gin"
 )
 

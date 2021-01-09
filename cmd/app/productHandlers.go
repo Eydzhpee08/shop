@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/Eydzhpee08/first-api/pkg/products"
+	"github.com/Eydzhpee08/shop/pkg/products"
 	"github.com/gin-gonic/gin"
 	"github.com/jackc/pgx/v4"
 )

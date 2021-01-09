@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-	"github.com/Eydzhpee08/first-api/pkg/bills"
+	"github.com/Eydzhpee08/shop/pkg/bills"
 	"github.com/gin-gonic/gin"
 )
 

@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/Eydzhpee08/first-api/pkg/customers"
+	"github.com/Eydzhpee08/shop/pkg/customers"
 	"github.com/gin-gonic/gin"
 	"github.com/jackc/pgx/v4"
 )

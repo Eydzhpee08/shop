@@ -1,12 +1,12 @@
 //main.go
 package main
 import (
- "github.com/Eydzhpee08/first-api/pkg/config"
- "github.com/Eydzhpee08/first-api/cmd/app"
- "github.com/Eydzhpee08/first-api/pkg/bill"
- "github.com/Eydzhpee08/first-api/pkg/customers"
- "github.com/Eydzhpee08/first-api/pkg/products"
- "github.com/Eydzhpee08/first-api/pkg/database"
+ "github.com/Eydzhpee08/shop/pkg/config"
+ "github.com/Eydzhpee08/shop/cmd/app"
+ "github.com/Eydzhpee08/shop/pkg/bill"
+ "github.com/Eydzhpee08/shop/pkg/customers"
+ "github.com/Eydzhpee08/shop/pkg/products"
+ "github.com/Eydzhpee08/shop/pkg/database"
  "fmt"
 "github.com/jinzhu/gorm"
 )
